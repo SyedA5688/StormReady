@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Image, Dimensions } from 'react-native';
 import questions from '../assets/questions.json';
 
 export default function QOTD()
@@ -37,9 +37,11 @@ export default function QOTD()
     setRightAnsSelected(false);
     setWrongAnsSelected(false);
   }
+
+  let screenHeight = Dimensions.get('window').height;
   
   return(
-    <View style={styles.container} >
+    <View style={[styles.container, {height: screenHeight - 240}]} >
       <View style={styles.Qframe} >
         <Text style={styles.textQ} >Question: {questions[currentQ].Q} </Text>
       </View>
@@ -93,7 +95,7 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'column',
     alignItems: 'center',
-    height: '100%',
+    //height: '100%', // Height set in line based on screen height
     //borderWidth: 1,
   },
   Qframe: {
@@ -149,7 +151,6 @@ const styles = StyleSheet.create({
   },
   newQButtonContainer: {
     marginTop: 'auto',
-    marginBottom: 10,
     width: '100%',
     height: 50,
     borderColor: 'black',

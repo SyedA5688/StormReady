@@ -4,8 +4,23 @@ import { StyleSheet, Image, Text, View } from 'react-native';
 export default function Home(){
   return(
     <View style={styles.container} >
-      <View style={styles.homeCard} >
-        <Text style={styles.homeCardText} >Stay informed and prepared for future hurricane events!</Text>
+      <View style={[styles.cardContainer, { backgroundColor: 'lightsteelblue' }]}>
+        <Text style={styles.titleText} >General Information:</Text>
+        <Text style={styles.generalText} >Hurricanes are dangerous storm systems characterized 
+                                    by fast winds, heavy rain, and flood damage. But the 
+                                    most dangerous threat during hurricanes is unpreparedness!</Text>
+      </View>
+      <View style={[styles.cardContainer, { backgroundColor: 'lightskyblue' }]} >
+        <Text style={styles.cardText} >For information on storm preparation, check out
+                                          the <Text style={{fontWeight: 'bold'}} >Plan</Text> tab</Text>
+      </View>
+      <View style={[styles.cardContainer, { backgroundColor: 'lightgreen' }]} >
+        <Text style={styles.cardText} >To test how prepared and informed you are, check out
+                                          the <Text style={{fontWeight: 'bold'}} >Questions</Text> tab</Text>
+      </View>
+      <View style={[styles.cardContainer, { backgroundColor: 'lightpink' }]} >
+        <Text style={styles.cardText} >To get the most out of this app, check out the <Text style={{fontWeight: 'bold'}} >
+                                      Monitor</Text> tab for push notifications and location monitoring</Text> 
       </View>
       <View style={styles.imageContainer} >
         <Image source={require('../assets/hurricane.jpg')} style={styles.image} />
@@ -19,23 +34,31 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flex: 1,
   },
-  homeCard: {
+  cardContainer: {
     borderWidth: 1,
-    backgroundColor: 'lightcyan',
+    marginBottom: 15,
+    padding: 10,
     borderRadius: 8,
-    marginBottom: 10,
+    width: '100%',
   },
-  homeCardText: {
+  titleText: {
+    fontSize: 22,
+    textAlign: 'center',
+  },
+  generalText: {
+    fontSize: 16,
+    textAlign: 'center',
+  },
+  cardText: {
     fontSize: 18,
-    paddingVertical: 10,
-    paddingHorizontal: 15,
+    textAlign: 'center',
   },
   imageContainer: {
     //borderWidth: 1,
-    marginBottom: 15,
     width: '100%',
-    height: 213,
+    height: 200,
     alignItems: 'center',
+    marginTop: 20,
   },
   image: {
     flex: 1,
@@ -43,7 +66,8 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
     height: undefined,
     width: undefined,
-    //borderWidth: 1,
+    borderWidth: 1,
     borderRadius: 10,
+    borderColor: 'grey'
   },
 });
