@@ -3,7 +3,6 @@ import { StyleSheet, View, Text, TextInput, TouchableOpacity, Alert } from 'reac
 import * as firebase from 'firebase';
 
 export default class SignupScreen extends React.Component {
-
   constructor(props){
     super(props);
     this.state = {
@@ -20,7 +19,7 @@ export default class SignupScreen extends React.Component {
     }
     firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
       .then(() => {
-        // Successful signup handled in App.js by onAuthChange event listener
+        // Successful signup handled in MonitorScreen.js by onAuthChange event listener
       }, (error) => {
         Alert.alert(error.message);
       });
@@ -30,6 +29,7 @@ export default class SignupScreen extends React.Component {
     return (
       <View style={styles.container} >
         <View style={styles.content} >
+          <Text style={styles.titleText} >Enter your email and choose a password below to create an account</Text>
           <View style={styles.signupContainer} >
           <TextInput style={styles.textInput} 
             value={this.state.email}
@@ -76,8 +76,13 @@ const styles = StyleSheet.create({
     paddingHorizontal: 35,
     flex: 1,
   },
-  signupContainer: {
+  titleText: {
+    textAlign: 'center',
+    fontSize: 21,
     marginTop: 40,
+  },
+  signupContainer: {
+    marginTop: 50,
     alignItems: "center",
   },
   textInput: {
@@ -93,7 +98,7 @@ const styles = StyleSheet.create({
     width: '50%',
     padding: 7,
     marginBottom: 10,
-    marginTop: 20,
+    marginTop: 30,
   },
   buttonText: {
     textAlign: 'center',

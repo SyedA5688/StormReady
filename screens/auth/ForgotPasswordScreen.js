@@ -60,9 +60,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   titleText: {
-    fontSize: 20,
+    fontSize: 21,
     textAlign: 'center',
-    marginBottom: 30,
+    marginBottom: 40,
   },
   textInput: {
     width: 250,
