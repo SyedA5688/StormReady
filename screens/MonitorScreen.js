@@ -1,5 +1,4 @@
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
 import StackNavigator from '../navigation/StackNavigator'
 import MonitorSystem from '../components/monitorSystem';
 import * as firebase from 'firebase';
@@ -28,7 +27,6 @@ export default class MonitorScreen extends React.Component{
     else{
       // If logged in, return component for monitoring system
       return <MonitorSystem />
-      
     }
   }
 }

@@ -11,11 +11,11 @@ export default function Home(){
                                     most dangerous threat during hurricanes is unpreparedness!</Text>
       </View>
       <View style={[styles.cardContainer, { backgroundColor: 'lightskyblue' }]} >
-        <Text style={styles.cardText} >For information on storm preparation, check out
+        <Text style={styles.cardText} >For information on how to prepare for storms, click on
                                           the <Text style={{fontWeight: 'bold'}} >Plan</Text> tab</Text>
       </View>
       <View style={[styles.cardContainer, { backgroundColor: 'lightgreen' }]} >
-        <Text style={styles.cardText} >To test how prepared and informed you are, check out
+        <Text style={styles.cardText} >To test how prepared and informed you are, click on
                                           the <Text style={{fontWeight: 'bold'}} >Questions</Text> tab</Text>
       </View>
       <View style={[styles.cardContainer, { backgroundColor: 'lightpink' }]} >

@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button, TouchableOpacity, Alert, Vibration, Platform } from 'react-native';
+import { StyleSheet, Text, View, Button, TouchableOpacity, Alert, Vibration, Platform, ScrollView } from 'react-native';
 import Header from './header';
 import { Notifications } from 'expo';
 import * as Permissions from 'expo-permissions';
@@ -29,10 +29,26 @@ export default class MonitorSystem extends React.Component {
       Alert.alert(error.message);
     });
 
-    // Handle notifications that are received or selected while app is open. If the app was closed 
-    // and then opened by tapping notification this function will fire after the app starts w/ notification data.
-    // This code was originally in a ComponentDidMount() method*
+    // Handle notifications that are received or selected while app is open
     this._notificationSubscription = Notifications.addListener(this._handleNotification);
+
+    // Set up daily reminder to answer some questions
+    const localNotification = {
+      title: 'Test Your Knowledge',
+      body: 'Complete some questions to test your knowledge about hurricane preparedness!',
+      sound: true,
+      _displayInForeground: true,
+    };
+    let t = new Date(2020, 5, 15, 16, 0); // 2020, June (index months) 15th, 4:00pm
+    //console.log(t);
+    const schedulingOptions = {
+      time: t,
+      repeat: 'day'
+    };
+    // On ios, automatically repeated notifications are deprecated because
+    // iOS 10 deprecates UILocalNotification in iOS 10. Find another notification
+    // framework*
+    Notifications.scheduleLocalNotificationAsync(localNotification, schedulingOptions);
   }
 
   _handleNotification = notification => {
@@ -92,8 +108,8 @@ export default class MonitorSystem extends React.Component {
     const message = {
       to: push_token,
       sound: 'default',
-      title: 'Test Your Situational Knowledge',
-      body: 'Complete a daily question to test your knowledge about hurricane readiness!',
+      title: 'Test Your Knowledge',
+      body: 'Complete some questions to test your knowledge about hurricane preparedness!',
       data: { data: 'goes here' },
       _displayInForeground: true,
     };
@@ -112,26 +128,27 @@ export default class MonitorSystem extends React.Component {
     return (
       <View style={styles.container} >
         <Header />
-        <View style={styles.content} >
-          <View style={styles.cardContainer} >
-            <Text style={styles.cardText} >To receive notifications, click on the button below</Text>
-          </View>
-          <TouchableOpacity style={[styles.buttonBox, {backgroundColor: 'skyblue'}]} onPress={this.onRegisterForNotificationsPress} >
-            <Text style={styles.buttonText}>Register for notifications</Text>
-          </TouchableOpacity>
+        <ScrollView>
+          <View style={styles.content} >
+            <View style={styles.cardContainer} >
+              <Text style={styles.cardText} >To receive notifications, click on the button below</Text>
+            </View>
+            <TouchableOpacity style={[styles.buttonBox, {backgroundColor: 'skyblue'}]} onPress={this.onRegisterForNotificationsPress} >
+              <Text style={styles.buttonText}>Register for notifications</Text>
+            </TouchableOpacity>
 
-          {/* Location tracking area */}
-          <View>
-            <Text>Location Tracking Area...</Text>
+            {/* Location tracking area */}
+            <View>
+              <Text>Location Tracking Area...</Text>
+            </View>
+            
+            {/* Signout Button */}
+            <TouchableOpacity style={[styles.buttonBox, {backgroundColor: 'lightpink', marginTop: 40,}]} onPress={this.onSignoutPress} >
+              <Text style={styles.buttonText}>Signout</Text>
+            </TouchableOpacity>
+            {/* <Button title="Send a notification to me" onPress={this.sendPushNotification} /> */}
           </View>
-
-          {/* Signout Button */}
-          <TouchableOpacity style={[styles.buttonBox, {backgroundColor: 'lightpink', marginTop: 40,}]} onPress={this.onSignoutPress} >
-            <Text style={styles.buttonText}>Signout</Text>
-          </TouchableOpacity>
-          {/* <Button title="Send a notification to me" onPress={this.sendPushNotification} /> */}
-          
-        </View>
+        </ScrollView>
       </View>
     )
   }
