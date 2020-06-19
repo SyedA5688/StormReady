@@ -1,6 +1,9 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button, TouchableOpacity, Alert, Vibration, Platform, ScrollView } from 'react-native';
-import Header from './header';
+import { StyleSheet, Text, View, Button, TouchableOpacity, Image, 
+          Alert, Vibration, Platform, ScrollView, Dimensions } from 'react-native';
+import Header from '../components/header';
+import * as Location from 'expo-location';
+import MapView, { Marker } from 'react-native-maps';
 import { Notifications } from 'expo';
 import * as Permissions from 'expo-permissions';
 import Constants from 'expo-constants';
@@ -13,12 +16,49 @@ export default class MonitorSystem extends React.Component {
     super(props);
     this.state = {
       //expoPushToken: '',
-      notification: {},
+      //notification: {},
+      userLocation: {
+        latitude: 0,
+        longitude: 0,
+      },
     };
+    this.updateStateLocation();
+  }
+
+  updateStateLocation = async () => {
+    let user_id = firebase.auth().currentUser.uid;
+    await firebase.database().ref("users").child(user_id).child('location').once('value')
+      .then((snapshot) => {
+        // Update state with longitude and latitude retrieved from firebase
+        //console.log(snapshot.val());
+        this.setState({ userLocation: {
+          latitude: parseFloat(snapshot.val().latitude),
+          longitude: parseFloat(snapshot.val().longitude),
+        } });
+      }, (error) => {
+        console.log(error.message);
+      })
   }
 
   onSignoutPress = () => {
     firebase.auth().signOut();
+  }
+
+  onRegisterLocationPress = async () => {
+    let { status } = await Location.requestPermissionsAsync();
+    if (status !== 'granted') {
+      Alert.alert('Did not set up location tracking');
+      return;
+    }
+
+    let location = await Location.getCurrentPositionAsync({});
+    //this.setState({ userLocation: location });
+    // Store rounded location in firebase
+    let uid = firebase.auth().currentUser.uid;
+    firebase.database().ref("users").child(uid).child("location").update({
+      latitude: location.coords.latitude.toFixed(5),
+      longitude: location.coords.longitude.toFixed(5)
+    });
   }
 
   onRegisterForNotificationsPress = () => {
@@ -28,18 +68,20 @@ export default class MonitorSystem extends React.Component {
     }, (error) => {
       Alert.alert(error.message);
     });
-
     // Handle notifications that are received or selected while app is open
     this._notificationSubscription = Notifications.addListener(this._handleNotification);
 
     // Set up daily reminder to answer some questions
+    Notifications.cancelAllScheduledNotificationsAsync(); // Clear other scheduled notifications
     const localNotification = {
       title: 'Test Your Knowledge',
       body: 'Complete some questions to test your knowledge about hurricane preparedness!',
       sound: true,
       _displayInForeground: true,
     };
-    let t = new Date(2020, 5, 15, 16, 0); // 2020, June (index months) 15th, 4:00pm
+    let t = new Date(); // Current date
+    t.setDate(t.getDate() + 1);
+    t.setHours(16, 0, 0); // Set time to 4pm the next day
     //console.log(t);
     const schedulingOptions = {
       time: t,
@@ -53,8 +95,8 @@ export default class MonitorSystem extends React.Component {
 
   _handleNotification = notification => {
     Vibration.vibrate();
-    //console.log(notification);
-    this.setState({ notification: notification });
+    console.log(notification);
+    //this.setState({ notification: notification });
   };
 
   registerForPushNotificationsAsync = async () => {
@@ -68,12 +110,11 @@ export default class MonitorSystem extends React.Component {
         finalStatus = status;
       }
       if (finalStatus !== 'granted') {
-        alert('Failed to get push token for push notification!');
+        alert('Did not set up notification services');
         return;
       }
       token = await Notifications.getExpoPushTokenAsync(); // Push token
       //console.log(token);
-      //this.setState({ expoPushToken: token });
     } else {
       alert('Must use physical device for Push Notifications');
     }
@@ -87,8 +128,7 @@ export default class MonitorSystem extends React.Component {
       });
     }
 
-    // Post push token to firebase
-    // Currently, any authenticated user can access database, make more secure later
+    // Post push token to firebase. Currently, any authenticated user can access database, make more secure later
     let uid = firebase.auth().currentUser.uid;
     firebase.database().ref("users").child(uid).update({
       expoPushToken: token
@@ -131,15 +171,41 @@ export default class MonitorSystem extends React.Component {
         <ScrollView>
           <View style={styles.content} >
             <View style={styles.cardContainer} >
-              <Text style={styles.cardText} >To receive notifications, click on the button below</Text>
+              <Text style={styles.cardText} >
+                This app will only take the information you allow it. Register 
+                or update your location and notification device ID below</Text>
             </View>
-            <TouchableOpacity style={[styles.buttonBox, {backgroundColor: 'skyblue'}]} onPress={this.onRegisterForNotificationsPress} >
+            <TouchableOpacity 
+              style={[styles.buttonBox, {backgroundColor: 'skyblue'}]} 
+              onPress={this.onRegisterForNotificationsPress} 
+            >
               <Text style={styles.buttonText}>Register for notifications</Text>
+            </TouchableOpacity>
+            <TouchableOpacity 
+              style={[styles.buttonBox, {backgroundColor: 'lightgreen'}]} 
+              onPress={this.onRegisterLocationPress} 
+            >
+              <Text style={styles.buttonText}>Update location</Text>
             </TouchableOpacity>
 
             {/* Location tracking area */}
-            <View>
-              <Text>Location Tracking Area...</Text>
+            <View style={styles.locationContainer} >
+              <Text>Latitude: {JSON.stringify(this.state.userLocation.latitude)}</Text>
+              <Text>Longitude: {JSON.stringify(this.state.userLocation.longitude)}</Text>
+              {/* Map */}
+              <MapView 
+                style={styles.mapStyle} 
+                region={{ 
+                  latitude: this.state.userLocation.latitude, 
+                  longitude: this.state.userLocation.longitude, 
+                  latitudeDelta: 25,
+                  longitudeDelta: 25,
+                }} 
+              >
+                <Marker coordinate={this.state.userLocation} centerOffset={{ x: 0, y: -10 }}>
+                  <Image source={require('../assets/location_marker.png')} style={{ width: 15, height: 25 }} />
+                </Marker>
+              </MapView>
             </View>
             
             {/* Signout Button */}
@@ -180,7 +246,7 @@ const styles = StyleSheet.create({
   buttonBox: {
     borderWidth: 1,
     borderRadius: 10,
-    width: '60%',
+    width: '70%',
     paddingVertical: 6,
     paddingHorizontal: 10,
     marginBottom: 10,
@@ -189,4 +255,14 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 15,
   },
+  locationContainer: {
+    marginTop: 20,
+    alignItems: 'center',
+  },
+  mapStyle: {
+    width: Dimensions.get('window').width - 90,
+    height: (Dimensions.get('window').height / 3) + 50,
+    borderWidth: 1,
+    borderRadius: 8,
+  }
 });

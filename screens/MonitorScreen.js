@@ -1,6 +1,6 @@
 import React from 'react';
 import StackNavigator from '../navigation/StackNavigator'
-import MonitorSystem from '../components/monitorSystem';
+import MonitorSystem from './monitorSystem';
 import * as firebase from 'firebase';
 
 
