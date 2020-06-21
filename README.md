@@ -15,4 +15,5 @@ Features of the app include:
 - A map of all active hurricane locations globally
 
 
-The app uses React Native/Expo and Firebase. 
+This app was developed using React Native/Expo and Firebase. Hurricane location information is drawn from
+the Aeris Weather API.
