@@ -8,6 +8,7 @@ import { Notifications } from 'expo';
 import * as Permissions from 'expo-permissions';
 import Constants from 'expo-constants';
 import * as firebase from 'firebase';
+import ApiKeys from '../constants/ApiKeys';
 
 
 // This component will only show if user is logged in and authenticated
@@ -21,8 +22,10 @@ export default class MonitorSystem extends React.Component {
         latitude: 0,
         longitude: 0,
       },
+      activeStorms: [],
     };
     this.updateStateLocation();
+    this.getActiveHurricanes();
   }
 
   updateStateLocation = async () => {
@@ -40,6 +43,18 @@ export default class MonitorSystem extends React.Component {
       })
   }
 
+  getActiveHurricanes = async () => {
+    // Retrieve active hurricane information from weather api
+    const response = await fetch('https://api.aerisapi.com/tropicalcyclones/?' + 'client_id=' +
+      ApiKeys.WeatherAPI.accessID + '&client_secret=' + ApiKeys.WeatherAPI.secretKey)
+      .then(response => response.json())
+      .then(data => {
+        //console.log(data);
+        // Set response array with all active hurricanes to state variable
+        this.setState({ activeStorms: data.response });
+      });
+  }
+
   onSignoutPress = () => {
     firebase.auth().signOut();
   }
@@ -47,7 +62,7 @@ export default class MonitorSystem extends React.Component {
   onRegisterLocationPress = async () => {
     let { status } = await Location.requestPermissionsAsync();
     if (status !== 'granted') {
-      Alert.alert('Did not set up location tracking');
+      Alert.alert('Was not able to set up location tracking, check if you have location disabled');
       return;
     }
 
@@ -190,8 +205,8 @@ export default class MonitorSystem extends React.Component {
 
             {/* Location tracking area */}
             <View style={styles.locationContainer} >
-              <Text>Latitude: {JSON.stringify(this.state.userLocation.latitude)}</Text>
-              <Text>Longitude: {JSON.stringify(this.state.userLocation.longitude)}</Text>
+              {/* <Text>Latitude: {JSON.stringify(this.state.userLocation.latitude)}</Text> */}
+              {/* <Text>Longitude: {JSON.stringify(this.state.userLocation.longitude)}</Text> */}
               {/* Map */}
               <MapView 
                 style={styles.mapStyle} 
@@ -202,9 +217,24 @@ export default class MonitorSystem extends React.Component {
                   longitudeDelta: 25,
                 }} 
               >
+                {/* Marker at user location */}
                 <Marker coordinate={this.state.userLocation} centerOffset={{ x: 0, y: -10 }}>
                   <Image source={require('../assets/location_marker.png')} style={{ width: 15, height: 25 }} />
                 </Marker>
+
+                {/* Markers for each active hurricane */}
+                {/* Check code for any errors once there are active hurricanes */}
+                { this.state.activeStorms.map(stormData => (
+                  <Marker 
+                    coordinate={{
+                      latitude: stormData.position.location.coordinates[0],
+                      longitude: stormData.position.location.coordinates[1]
+                    }} 
+                    title={stormData.position.details.stormName}
+                  >
+                    <Image source={require('../assets/hurricane_icon.png')} style={{ width: 32, height: 30 }} />
+                  </Marker>
+                )) }
               </MapView>
             </View>
             
@@ -256,7 +286,7 @@ const styles = StyleSheet.create({
     fontSize: 15,
   },
   locationContainer: {
-    marginTop: 20,
+    marginTop: 15,
     alignItems: 'center',
   },
   mapStyle: {
