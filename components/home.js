@@ -14,11 +14,11 @@ export default function Home(){
         <Text style={styles.cardText} >For information and helpful tips on how to prepare for severe storms, click on
                                           the <Text style={{fontWeight: 'bold'}} >Plan</Text> tab</Text>
       </View>
-      <View style={[styles.cardContainer, { backgroundColor: 'lightgreen' }]} >
+      <View style={[styles.cardContainer, { backgroundColor: 'lightpink' }]} >
         <Text style={styles.cardText} >To test your knowledge and decision making, answer some questions in
                                           the <Text style={{fontWeight: 'bold'}} >Questions</Text> tab</Text>
       </View>
-      <View style={[styles.cardContainer, { backgroundColor: 'lightpink' }]} >
+      <View style={[styles.cardContainer, { backgroundColor: 'mediumaquamarine' }]} >
         <Text style={styles.cardText} >To get the most out of this app, check out the <Text style={{fontWeight: 'bold'}} >
                                       Monitor</Text> tab for push notifications and hurricane location monitoring</Text> 
       </View>

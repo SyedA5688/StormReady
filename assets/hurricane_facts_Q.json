@@ -60,16 +60,6 @@
     "CorrectFeedback": "The forward motion of the entire storm adds to the windspeed in the forward right quadrant"
   },
   "7": {
-    "Q": "What is the safest place within your home to shelter during a hurricane?",
-    "A": "Away from windows, in the basement if possible",
-    "B": "On the uppermost floor, to avoid flooding",
-    "C": "On the roof, so that rescuers can see you",
-    "D": "Under a sturdy piece of furniture",
-    "Answer": "A",
-    "IncorrectFeedback": "Consider that windspeeds are the biggest danger for most homes",
-    "CorrectFeedback": "Being near a window may cause injury if it breaks. Being away from openings in your home shelters you somewhat"
-  },
-  "8": {
     "Q": "How deep does moving water have to be to sweep a grown adult off their feet?",
     "A": "3 inches",
     "B": "6 inches",
@@ -79,7 +69,7 @@
     "IncorrectFeedback": "Hint: It does not take much moving water to carry away large objects",
     "CorrectFeedback": "An adult human can be carried away by as little as 6 inches of fast-moving water!"
   },
-  "9": {
+  "8": {
     "Q": "How deep does moving water have to be to sweep away an average car?",
     "A": "10 inches",
     "B": "14 inches",
@@ -89,17 +79,7 @@
     "IncorrectFeedback": "Hint: It does not take much moving water to carry away large objects",
     "CorrectFeedback": "Average cars start being swept away with around 18 inches of moving water. Trucks and SUVs do not fare much better"
   },
-  "10": {
-    "Q": "If you are stuck in a flooded area trying to evacuate, what do you do?",
-    "A": "Try swimming to safety",
-    "B": "Take your car and drive slowly through the water to a safer location",
-    "C": "Find something to use as a raft and float to a less flooded area",
-    "D": "Move to the highest ground possible and wait to be rescued",
-    "Answer": "D",
-    "IncorrectFeedback": "Do not try crossing flood waters, it can easily sweep you or your car away",
-    "CorrectFeedback": "The safest move when stuck in a flooded area is to get to high ground and wait, rescue crews will be coming."
-  },
-  "11": {
+  "9": {
     "Q": "What is not a danger associated with hurricanes events?",
     "A": "High temperatures",
     "B": "Damaged power lines and building infrastructure",
@@ -109,37 +89,7 @@
     "IncorrectFeedback": "This is one of the dangers posed during hurricane events",
     "CorrectFeedback": "High temperatures are not necessarily associated with hurricanes, unless damaged power lines or electronics starts a fire"
   },
-  "12": {
-    "Q": "You are driving to evacuate from a hurricane, and see a barricade blocking your fastest exit path. What do you do?",
-    "A": "Drive around it, because time is the highest priority",
-    "B": "Find another road to evacuate",
-    "C": "Leave your car to see why the road is barricaded",
-    "D": "Leave your car and keep going down the road by foot",
-    "Answer": "B",
-    "IncorrectFeedback": "If the road is barricaded, it is probably by local responders to block off flooded areas",
-    "CorrectFeedback": "Even though the road may be the fastest evacuation path, if it is barricaded then the road was likely deemed unsafe to traverse"
-  },
-  "13": {
-    "Q": "Floodwater is rising in your home and you cannot exit. Where in the building do you go?",
-    "A": "To the attic, because it is the highest point",
-    "B": "To a window, because if you open the window it will let out some water",
-    "C": "To the highest floor",
-    "D": "A, B, or C would be viable options",
-    "Answer": "C",
-    "IncorrectFeedback": "Hint: Your attic may trap you in rising water, and the water level outside your house is the same as inside",
-    "CorrectFeedback": "The highest full floor is the best place to stay out rising floodwaters"
-  },
-  "14": {
-    "Q": "Your car is trapped in moving floodwater. What do you do?",
-    "A": "Open the door and exit the car immediately",
-    "B": "Honk your horn to attract attention from possible rescuers",
-    "C": "Try driving your car to a less flooded area",
-    "D": "Stay inside",
-    "Answer": "D",
-    "IncorrectFeedback": "You need to take immediate action, but avoid the floodwaters that can easily carry you away",
-    "CorrectFeedback": "Staying inside the car is the safest action. If the car is filling with water, get on top of the car's roof"
-  },
-  "15": {
+  "10": {
     "Q": "How much water does a typical hurricane drop on a region?",
     "A": "0-6 inches",
     "B": "6-12 inches",
@@ -149,7 +99,7 @@
     "IncorrectFeedback": "Hint: Not every hurricane floods a region, consider all hurricanes",
     "CorrectFeedback": "An average hurricane will drop around 6-12 inches of rain over an area"
   },
-  "16": {
+  "11": {
     "Q": "What part of a hurricane has the strongest wind and rain?",
     "A": "The cloud bands around the eye of the hurricane",
     "B": "The cloud bands at the front edge of the hurricane that hit land first",
@@ -159,7 +109,7 @@
     "IncorrectFeedback": "Consider at which part of the hurricane are the clouds bands the densest",
     "CorrectFeedback": "The clouds around the eye of the storm will carry the fastest winds and heaviest rains"
   },
-  "17": {
+  "12": {
     "Q": "How are hurricanes in the Atlantic Ocean and Gulf of Mexico affected during El nino years?",
     "A": "The warmer ocean temperatures in the eastern Pacific have no affect on hurricanes in the Atlantic Ocean",
     "B": "There are more hurricanes in the Atlantic Ocean and Gulf of Mexico",
@@ -169,7 +119,7 @@
     "IncorrectFeedback": "Hint: Although ocean temperatures are warmer in the eastern Pacific, wind patterns over the Atlantic are changed during El nino",
     "CorrectFeedback": "There are actually less hurricanes in the Atlantic Ocean and Gulf of Mexico during El nino due to increased vertical wind shear weakening hurricane formation"
   },
-  "18": {
+  "13": {
     "Q": "What surface ocean temperature (in Fahrenheit) is required for hurricane development?",
     "A": "Around 95 degrees Fahrenheit",
     "B": "Around 90 degrees Fahrenheit",
@@ -179,7 +129,7 @@
     "IncorrectFeedback": "A lower surface ocean temperature can help hurricanes form",
     "CorrectFeedback": "At around 80 degrees Fahrenheit surface ocean temperatures can feed hurricanes energy"
   },
-  "19": {
+  "14": {
     "Q": "How many tropical storms develop over the Atlantic Ocean during a typical hurricane season?",
     "A": "Around 10",
     "B": "Around 15",
@@ -189,14 +139,4 @@
     "IncorrectFeedback": "Consider how many tropical storm events you hear about during an average hurricane season",
     "CorrectFeedback": "Around 10 tropical storms will develop over the Atlantic Ocean, including the Caribbean Sea and Gulf of Mexico"
   },
-  "20": {
-    "Q": "If your area is within the outer reaches of the predicted hurricane path, is it reasonable to assume you are safe?",
-    "A": "Yes, because weather stations have become accurate in tracking and predicting hurricane paths",
-    "B": "No, because many factors affect hurricane path, and your area is within the possible range of the hurricanes path",
-    "C": "Yes, because even if the hurricane follows the outer edge of the predicted path, it will not cause too much damage",
-    "D": "Both A and C are correct",
-    "Answer": "B",
-    "IncorrectFeedback": "If your area is within any part of the hurricane path range by the weather station, do not assume you will not get hit",
-    "CorrectFeedback": "Many factors influence hurricane paths, so be prepared for the worst"
-  }
 }

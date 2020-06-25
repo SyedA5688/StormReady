@@ -3,7 +3,6 @@ import { StyleSheet, View, Text, TextInput, TouchableOpacity, Alert } from 'reac
 import * as firebase from 'firebase';
 
 export default class ForgotPasswordScreen extends React.Component {
-
   constructor(props){
     super(props);
     this.state = {

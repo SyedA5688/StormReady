@@ -1,18 +1,19 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import LoginScreen from '../screens/auth/LoginScreen';
-import SignupScreen from '../screens/auth/SignupScreen';
-import ForgotPasswordScreen from '../screens/auth/ForgotPasswordScreen';
+import QuestionsScreen from '../screens/QuestionsScreen';
+import FactGameScreen from '../screens/games/HurricaneFactGame';
+import PrepActionGameScreen from '../screens/games/PrepActionGame';
+import MapMarkerGameScreen from '../screens/games/MapMarkerGame';
 
 const Stack = createStackNavigator();
 
-export default class StackNavigator extends React.Component{
+export default class GameStackNavigator extends React.Component{
   render(){
     return (
       <Stack.Navigator>
         <Stack.Screen
-          name="Login"
-          component={LoginScreen}
+          name="StormReady"
+          component={QuestionsScreen}
           options={{
             title: 'StormReady',
             headerStyle: {
@@ -28,10 +29,10 @@ export default class StackNavigator extends React.Component{
           }}
         />
         <Stack.Screen 
-          name="Signup" 
-          component={SignupScreen} 
+          name="Storm Facts Quiz" 
+          component={FactGameScreen} 
           options={{
-            title: 'Signup',
+            title: 'Storm Facts Quiz',
             headerStyle: {
               backgroundColor: 'cornflowerblue',
               height: 90,
@@ -46,10 +47,28 @@ export default class StackNavigator extends React.Component{
           }}
         />
         <Stack.Screen 
-          name="Forgot Password" 
-          component={ForgotPasswordScreen} 
+          name="Preparation Quiz"
+          component={PrepActionGameScreen} 
           options={{
-            title: 'Forgot Password',
+            title: 'Preparation Quiz',
+            headerStyle: {
+              backgroundColor: 'cornflowerblue',
+              height: 90,
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+              color: '#fff',
+              fontSize: 22,
+              fontWeight: 'bold',
+            },
+            headerBackTitle: 'Back',
+          }}
+        />
+        <Stack.Screen 
+          name="Map Quiz"
+          component={MapMarkerGameScreen} 
+          options={{
+            title: 'Map Quiz',
             headerStyle: {
               backgroundColor: 'cornflowerblue',
               height: 90,

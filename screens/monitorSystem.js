@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, Button, TouchableOpacity, Image,
           Alert, Vibration, Platform, ScrollView, Dimensions } from 'react-native';
 import Header from '../components/header';
 import * as Location from 'expo-location';
-import MapView, { Marker } from 'react-native-maps';
+import MapView, { Marker, Polyline } from 'react-native-maps';
 import { Notifications } from 'expo';
 import * as Permissions from 'expo-permissions';
 import Constants from 'expo-constants';
@@ -50,8 +50,35 @@ export default class MonitorSystem extends React.Component {
       .then(response => response.json())
       .then(data => {
         //console.log(data);
-        // Set response array with all active hurricanes to state variable
-        this.setState({ activeStorms: data.response });
+        // Set response array in state with all active hurricanes
+        // Map function will extract from each storm an object containing:
+        // The storm id (unique ID for key prop), 
+        // The storm name, 
+        // The storm category (TD = Tropical Depression, TS = tropical storm, 
+        // H1...4 = Category 1...4 Hurricane, TY = Typhoon, STY = Super Typhoon),
+        // The location object of the storm
+        // The location track of the storm (oldest locations first in array)
+        this.setState({ activeStorms: data.response.map(eachStorm => (
+          // Will return this object for each storm in data.response
+          {
+            id: eachStorm.id,
+            name: eachStorm.position.details.stormName,
+            stormCat: eachStorm.position.details.stormCat,
+            location: {
+              latitude: eachStorm.position.loc.lat,
+              longitude: eachStorm.position.loc.long,
+            },
+            track: eachStorm.track.map(trackInstance => ({
+              dateTimeISO: trackInstance.dateTimeISO,
+              location: {
+                latitude: trackInstance.loc.lat,
+                longitude: trackInstance.loc.long,
+              },
+              advisoryNum: trackInstance.details.advisoryNumber,
+            }))
+          }
+        )) });
+        //console.log(this.state.activeStorms);
       });
   }
 
@@ -187,8 +214,7 @@ export default class MonitorSystem extends React.Component {
           <View style={styles.content} >
             <View style={styles.cardContainer} >
               <Text style={styles.cardText} >
-                This app will only take the information you allow it. Register 
-                or update your location and notification device ID below</Text>
+                Click below to register or update your location and notification device ID</Text>
             </View>
             <TouchableOpacity 
               style={[styles.buttonBox, {backgroundColor: 'skyblue'}]} 
@@ -217,32 +243,44 @@ export default class MonitorSystem extends React.Component {
                   longitudeDelta: 25,
                 }} 
               >
-                {/* Marker at user location */}
+                {/* User Location Marker */}
                 <Marker coordinate={this.state.userLocation} centerOffset={{ x: 0, y: -10 }}>
                   <Image source={require('../assets/location_marker.png')} style={{ width: 15, height: 25 }} />
                 </Marker>
 
                 {/* Markers for each active hurricane */}
-                {/* Check code for any errors once there are active hurricanes */}
-                { this.state.activeStorms.map(stormData => (
-                  <Marker 
-                    coordinate={{
-                      latitude: stormData.position.location.coordinates[0],
-                      longitude: stormData.position.location.coordinates[1]
-                    }} 
-                    title={stormData.position.details.stormName}
-                  >
-                    <Image source={require('../assets/hurricane_icon.png')} style={{ width: 32, height: 30 }} />
-                  </Marker>
-                )) }
+                { this.state.activeStorms.map(stormData => {
+                  return (
+                    <View key={"ViewComponent-Storm:" + stormData.id} > 
+                      {/* Storm marker */}
+                      <Marker coordinate={stormData.location} title={stormData.name} key={stormData.id} >
+                        <Image source={require('../assets/hurricane_icon.png')} style={{ width: 32, height: 30 }} />
+                      </Marker>
+                      {/* Dot marker for each position in track of each hurricane */}
+                      { stormData.track.map(trackPosObj => {
+                        let uniqueID = stormData.id + trackPosObj.dateTimeISO; // Key is the storm id and time of location
+                        return (
+                          <Marker coordinate={trackPosObj.location} key={uniqueID} >
+                            <Image source={require('../assets/blue_dot_marker.png')} style={{ width: 10, height: 10 }} />
+                          </Marker>)
+                      })}
+                      {/* Lines connecting track of storm */}
+                      <Polyline 
+                        coordinates={stormData.track.map(trackObj => (trackObj.location))}
+                        key={"LinesComponent-" + stormData.id}
+                        strokeColor="#000"
+                        strokeWidth={3}
+                      />
+                    </View>
+                  )
+                })}
               </MapView>
             </View>
             
             {/* Signout Button */}
-            <TouchableOpacity style={[styles.buttonBox, {backgroundColor: 'lightpink', marginTop: 40,}]} onPress={this.onSignoutPress} >
+            <TouchableOpacity style={[styles.buttonBox, {backgroundColor: 'lightpink', marginTop: 20,}]} onPress={this.onSignoutPress} >
               <Text style={styles.buttonText}>Signout</Text>
             </TouchableOpacity>
-            {/* <Button title="Send a notification to me" onPress={this.sendPushNotification} /> */}
           </View>
         </ScrollView>
       </View>
@@ -256,18 +294,19 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   content: {
-    paddingVertical: 30,
-    paddingHorizontal: 35,
+    paddingVertical: 25,
+    paddingHorizontal: 20,
     flex: 1,
     alignItems: 'center',
   },
   cardContainer: {
-    marginBottom: 10,
+    marginBottom: 8,
     borderWidth: 1,
     borderRadius: 8,
     backgroundColor: 'seashell',
     paddingVertical: 8,
     paddingHorizontal: 20,
+    width: '90%'
   },
   cardText: {
     fontSize: 16,
@@ -279,7 +318,7 @@ const styles = StyleSheet.create({
     width: '70%',
     paddingVertical: 6,
     paddingHorizontal: 10,
-    marginBottom: 10,
+    marginBottom: 8,
   },
   buttonText: {
     textAlign: 'center',
@@ -290,8 +329,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   mapStyle: {
-    width: Dimensions.get('window').width - 90,
-    height: (Dimensions.get('window').height / 3) + 50,
+    width: Dimensions.get('window').width - 60,
+    height: (Dimensions.get('window').height / 2 - 20),
     borderWidth: 1,
     borderRadius: 8,
   }

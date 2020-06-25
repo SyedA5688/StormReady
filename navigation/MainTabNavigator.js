@@ -4,7 +4,7 @@ import { Ionicons } from '@expo/vector-icons';
 // Screens - Import screen returning functions for tab navigator to call
 import HomeScreen from '../screens/HomeScreen';
 import PlanScreen from '../screens/PlanScreen';
-import QuestionsScreen from '../screens/QuestionsScreen';
+import GameStackNavigator from './GameStackNavigator';
 import MonitorScreen from '../screens/MonitorScreen';
 
 
@@ -41,7 +41,7 @@ export default class TabNavigator extends React.Component{
       >
         <Tab.Screen name="Home" component={HomeScreen} />
         <Tab.Screen name="Plan" component={PlanScreen} />
-        <Tab.Screen name="Questions" component={QuestionsScreen} />
+        <Tab.Screen name="Questions" component={GameStackNavigator} />
         <Tab.Screen name="Monitor" component={MonitorScreen} />
       </Tab.Navigator>
     )

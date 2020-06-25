@@ -85,8 +85,12 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   loginContainer: {
-    marginTop: 30,
+    marginTop: 15,
     alignItems: "center",
+    borderWidth: 1,
+    paddingTop: 18,
+    paddingBottom: 5,
+    borderRadius: 8
   },
   textInput: {
     width: 250,

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Image, Dimensions } from 'react-native';
-import questions from '../assets/questions.json';
+import questions from '../assets/prep_and_action_Qs.json';
 
-export default function QOTD()
+export default function PrepActionQOTD()
 {
   const [currentQ, setCurrentQ] = useState(1);
   const [rightAnsSelected, setRightAnsSelected] = useState(false);
@@ -29,9 +29,7 @@ export default function QOTD()
   }
     
   const nextQuestionHandler = () => {
-    const maxQs = 20; // Total number of questions about hurricanes available
-    // ***Create array of boolean values so that questions are not repeated
-    // Generate random # 1 to 20
+    const maxQs = 6; // Total number of questions about hurricanes available
     let newQNum = Math.ceil(Math.random() * maxQs);
     setCurrentQ(newQNum);
     setRightAnsSelected(false);
@@ -43,7 +41,7 @@ export default function QOTD()
   return(
     <View style={[styles.container, {height: screenHeight - 240}]} >
       <View style={styles.Qframe} >
-        <Text style={styles.textQ} >Question: {questions[currentQ].Q} </Text>
+        <Text style={styles.textQ} >Preparation Question {questions[currentQ].Q}: </Text>
       </View>
 
       {/* Answer container */}
