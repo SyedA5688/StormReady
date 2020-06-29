@@ -29,7 +29,7 @@ export default function FactQOTD()
   }
     
   const nextQuestionHandler = () => {
-    const maxQs = 14; // Total number of questions about hurricanes available
+    const maxQs = 20; // Total number of questions about hurricanes available
     let newQNum = Math.ceil(Math.random() * maxQs);
     setCurrentQ(newQNum);
     setRightAnsSelected(false);

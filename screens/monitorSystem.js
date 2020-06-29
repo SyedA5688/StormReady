@@ -137,8 +137,10 @@ export default class MonitorSystem extends React.Component {
 
   _handleNotification = notification => {
     Vibration.vibrate();
-    console.log(notification);
+    //console.log(notification);
     //this.setState({ notification: notification });
+    // Might need to pass navigation prop in from MonitorScreen
+    this.props.navigation.navigate("Questions");
   };
 
   registerForPushNotificationsAsync = async () => {
@@ -212,27 +214,14 @@ export default class MonitorSystem extends React.Component {
         <Header />
         <ScrollView>
           <View style={styles.content} >
-            <View style={styles.cardContainer} >
-              <Text style={styles.cardText} >
-                Click below to register or update your location and notification device ID</Text>
-            </View>
-            <TouchableOpacity 
-              style={[styles.buttonBox, {backgroundColor: 'skyblue'}]} 
-              onPress={this.onRegisterForNotificationsPress} 
-            >
-              <Text style={styles.buttonText}>Register for notifications</Text>
-            </TouchableOpacity>
-            <TouchableOpacity 
-              style={[styles.buttonBox, {backgroundColor: 'lightgreen'}]} 
-              onPress={this.onRegisterLocationPress} 
-            >
-              <Text style={styles.buttonText}>Update location</Text>
-            </TouchableOpacity>
+            
 
             {/* Location tracking area */}
             <View style={styles.locationContainer} >
-              {/* <Text>Latitude: {JSON.stringify(this.state.userLocation.latitude)}</Text> */}
-              {/* <Text>Longitude: {JSON.stringify(this.state.userLocation.longitude)}</Text> */}
+              <View style={styles.mapTitleContainer} >
+                <Text style={styles.mapTitleText} >Worldwide Storm View:</Text>
+              </View>
+              
               {/* Map */}
               <MapView 
                 style={styles.mapStyle} 
@@ -261,7 +250,7 @@ export default class MonitorSystem extends React.Component {
                         let uniqueID = stormData.id + trackPosObj.dateTimeISO; // Key is the storm id and time of location
                         return (
                           <Marker coordinate={trackPosObj.location} key={uniqueID} >
-                            <Image source={require('../assets/blue_dot_marker.png')} style={{ width: 10, height: 10 }} />
+                            <Image source={require('../assets/blue_dot_marker.png')} style={{ width: 8, height: 8 }} />
                           </Marker>)
                       })}
                       {/* Lines connecting track of storm */}
@@ -276,9 +265,21 @@ export default class MonitorSystem extends React.Component {
                 })}
               </MapView>
             </View>
+            <TouchableOpacity 
+              style={[styles.buttonBox, {backgroundColor: 'skyblue'}]} 
+              onPress={this.onRegisterForNotificationsPress} 
+            >
+              <Text style={styles.buttonText}>Register for notifications</Text>
+            </TouchableOpacity>
+            <TouchableOpacity 
+              style={[styles.buttonBox, {backgroundColor: 'lightgreen'}]} 
+              onPress={this.onRegisterLocationPress} 
+            >
+              <Text style={styles.buttonText}>Update location</Text>
+            </TouchableOpacity>
             
             {/* Signout Button */}
-            <TouchableOpacity style={[styles.buttonBox, {backgroundColor: 'lightpink', marginTop: 20,}]} onPress={this.onSignoutPress} >
+            <TouchableOpacity style={[styles.buttonBox, {backgroundColor: 'lightpink', marginTop: 30,}]} onPress={this.onSignoutPress} >
               <Text style={styles.buttonText}>Signout</Text>
             </TouchableOpacity>
           </View>
@@ -299,18 +300,26 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
   },
-  cardContainer: {
-    marginBottom: 8,
+  locationContainer: {
+    marginVertical: 10,
+    alignItems: 'center',
+    width: '100%',
+  },
+  mapTitleContainer: {
+    marginBottom: 15,
+    borderBottomWidth: 1,
+    width: '80%',
+    alignItems: 'center',
+  },
+  mapTitleText: {
+    fontSize: 24,
+    marginBottom: 2,
+  },
+  mapStyle: {
+    width: Dimensions.get('window').width - 60,
+    height: (Dimensions.get('window').height / 2 - 20),
     borderWidth: 1,
     borderRadius: 8,
-    backgroundColor: 'seashell',
-    paddingVertical: 8,
-    paddingHorizontal: 20,
-    width: '90%'
-  },
-  cardText: {
-    fontSize: 16,
-    textAlign: 'center',
   },
   buttonBox: {
     borderWidth: 1,
@@ -324,14 +333,4 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 15,
   },
-  locationContainer: {
-    marginTop: 15,
-    alignItems: 'center',
-  },
-  mapStyle: {
-    width: Dimensions.get('window').width - 60,
-    height: (Dimensions.get('window').height / 2 - 20),
-    borderWidth: 1,
-    borderRadius: 8,
-  }
 });

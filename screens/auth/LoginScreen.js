@@ -86,6 +86,7 @@ const styles = StyleSheet.create({
   },
   loginContainer: {
     marginTop: 15,
+    marginBottom: 50,
     alignItems: "center",
     borderWidth: 1,
     paddingTop: 18,
@@ -93,20 +94,21 @@ const styles = StyleSheet.create({
     borderRadius: 8
   },
   textInput: {
-    width: 250,
+    width: '75%',
     height: 40,
     borderWidth: 1,
     marginBottom: 10,
   },
   buttonContainer: {
-    marginTop: 10,
+    marginTop: 20,
+    marginBottom:  20,
     alignItems: 'center',
-    width: '70%',
+    width: '100%',
   },
   buttonBox: {
     borderWidth: 1,
     borderRadius: 10,
-    width: '70%',
+    width: '60%',
     padding: 7,
     marginBottom: 10,
   },

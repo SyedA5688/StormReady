@@ -1,19 +1,19 @@
 {
   "1": {
-    "Q": "What is the safest place within your home to shelter during a hurricane?",
-    "A": "Away from windows, in the basement if possible",
-    "B": "On the uppermost floor, to avoid flooding",
-    "C": "On the roof, so that rescuers can see you",
-    "D": "Under a sturdy piece of furniture",
+    "Q": "Where is the safest place within your home to shelter during a hurricane (assuming no major flooding)?",
+    "A": "Away from windows and glass, in an interior room of the house on the lowest floor",
+    "B": "On the uppermost floor, because there is less of a chance of being hit by heavy windswept debris",
+    "C": "Next to a window or door, so that you can call for help",
+    "D": "There is no great place to shelter within regular homes during a hurricane",
     "Answer": "A",
-    "IncorrectFeedback": "Consider that windspeeds are the biggest danger for most homes",
-    "CorrectFeedback": "Being near a window may cause injury if it breaks. Being away from openings in your home shelters you somewhat"
+    "IncorrectFeedback": "Consider that windspeeds can damage and break glass in most homes",
+    "CorrectFeedback": "Being away from openings in your home shelters you somewhat"
   },
   "2": {
-    "Q": "If you are stuck in a flooded area trying to evacuate, what do you do?",
+    "Q": "If you are stuck in a flooded area trying to evacuate, what should you do?",
     "A": "Try swimming to safety",
     "B": "Take your car and drive slowly through the water to a safer location",
-    "C": "Find something to use as a raft and float to a less flooded area",
+    "C": "Find something to use as a raft and float until rescuers find you",
     "D": "Move to the highest ground possible and wait to be rescued",
     "Answer": "D",
     "IncorrectFeedback": "Do not try crossing flood waters, it can easily sweep you or your car away",
@@ -30,14 +30,14 @@
     "CorrectFeedback": "Even though the road may be the fastest evacuation path, if it is barricaded then the road was likely deemed unsafe to traverse"
   },
   "4": {
-    "Q": "Floodwater is rising in your home and you cannot exit. Where in the building do you go?",
-    "A": "To the attic, because it is the highest point",
-    "B": "To a window, because if you open the window it will let out some water",
-    "C": "To the highest floor",
-    "D": "A, B, or C would be viable options",
+    "Q": "Your local weather station is advising people in your area to evacuate, what should you do?",
+    "A": "Stay at home and pack your important belongings, while staying tuned to the weather station to see if the warning gets more serious",
+    "B": "Stay at home because you are not sure where to evacuate to",
+    "C": "Evacuate immediately to avoid possible congestion from evacuees later on",
+    "D": "Ignore the warning because floodwaters have never risen too high in your area",
     "Answer": "C",
-    "IncorrectFeedback": "Hint: Your attic may trap you in rising water, and the water level outside your house is the same as inside",
-    "CorrectFeedback": "The highest full floor is the best place to stay out rising floodwaters"
+    "IncorrectFeedback": "You should heed the warning if you are in an area called to evacuate. Evacuate as early as possible inland to higher elevation",
+    "CorrectFeedback": "Immediately evacuate, your local weather station wouldn't call you to evacuate without serious worry about weather conditions"
   },
   "5": {
     "Q": "Your car is trapped in moving floodwater. What do you do?",
@@ -52,11 +52,151 @@
   "6": {
     "Q": "If your area is within the outer reaches of the predicted hurricane path, is it reasonable to assume you are safe?",
     "A": "Yes, because weather stations have become accurate in tracking and predicting hurricane paths",
-    "B": "No, because many factors affect hurricane path, and your area is within the possible range of the hurricanes path",
+    "B": "No, because many factors affect hurricane path, which can cause your area to fall in hurricanes main path",
     "C": "Yes, because even if the hurricane follows the outer edge of the predicted path, it will not cause too much damage",
     "D": "Both A and C are correct",
     "Answer": "B",
     "IncorrectFeedback": "If your area is within any part of the hurricane path range by the weather station, do not assume you will not get hit",
     "CorrectFeedback": "Many factors influence hurricane paths, so be prepared for the worst"
+  },
+  "7": {
+    "Q": "Where is the safest place within your home to shelter during a hurricane if major flooding is occuring?",
+    "A": "On the uppermost floor, or on the roof so that rescuers can see you",
+    "B": "Next to a window on any story, the window will let out water",
+    "C": "In the basement",
+    "D": "There is no shelters within homes during major flooding, try swimming to safety",
+    "Answer": "A",
+    "IncorrectFeedback": "Try again, think about where to be if water is rising in your home",
+    "CorrectFeedback": "If major flooding is a factor, then get as high up in your house as possible, while staying away from windows"
+  },
+  "8": {
+    "Q": "What types of buildings fare the best in the face of hurricane conditions?",
+    "A": "Wooden homes",
+    "B": "Skyscrapers",
+    "C": "Brick and concrete structures",
+    "D": "Any smaller structures",
+    "Answer": "C",
+    "IncorrectFeedback": "Try again",
+    "CorrectFeedback": "Brick and concrete buildings tend to fare better"
+  },
+  "9": {
+    "Q": "Which of these is NOT a good place to know when preparing for a hurricane?",
+    "A": "The highest elevated point in your neighborhood",
+    "B": "The nearest public shelter",
+    "C": "The highest elevated land in your area",
+    "D": "A relative or close friend's house who lives farther away from the danger zone",
+    "Answer": "A",
+    "IncorrectFeedback": "This is a good place to know in advance of a hurricane",
+    "CorrectFeedback": "Entire neighborhoods may be underwater, know elevation points farther out from your local neighborhood"
+  },
+  "10": {
+    "Q": "What is a danger of wading through floodwater?",
+    "A": "Animals such as snakes carried by floodwaters",
+    "B": "Downed electrical power lines",
+    "C": "Contamination and unseen debris in the water",
+    "D": "All of the above",
+    "Answer": "D",
+    "IncorrectFeedback": "There is a better answer in the choices",
+    "CorrectFeedback": "All of these may be present in floodwaters"
+  },
+  "11": {
+    "Q": "When is it safe to re-enter your home if it was flooded?",
+    "A": "As soon as the floodwaters recede from the area",
+    "B": "Only when local authorities deem the area safe",
+    "C": "When the house is above water again",
+    "D": "Whenever you can come back by boat to salvage your possesions",
+    "Answer": "B",
+    "IncorrectFeedback": "There still may be dangers in the area, including animals, damaged electrical lines, and contamination",
+    "CorrectFeedback": ""
+  },
+  "12": {
+    "Q": "Where should you keep important documents during a major hurricane?",
+    "A": "On your person at all times, so you can keep it safe",
+    "B": "Anywhere as long as it is on the top floor of your home",
+    "C": "In a durable, waterproof container",
+    "D": "In any furniture that can close to keep out water, like a drawer",
+    "Answer": "C",
+    "IncorrectFeedback": "The biggest danger is the documents becoming waterlogged",
+    "CorrectFeedback": "Have at least one sturdy, waterproof container"
+  },
+  "13": {
+    "Q": "Which of these is not a useful item to have on hand during a hurricane?",
+    "A": "A waterproof stove and oven to continue cooking food",
+    "B": "A first aid kit",
+    "C": "A battery or crank radio",
+    "D": "Canned, non-perishable food and water filters",
+    "Answer": "A",
+    "IncorrectFeedback": "This is a useful item to have",
+    "CorrectFeedback": "Any electric or gas lines to your home may be damaged, try not to rely on appliances during a severe weather event"
+  },
+  "14": {
+    "Q": "Which of these items would definitely be functional during a hurricane?",
+    "A": "Your TV",
+    "B": "Your battery powered radio",
+    "C": "Your oven",
+    "D": "A crank-powered radio",
+    "Answer": "D",
+    "IncorrectFeedback": "Electrical applianced might lose power, and you may run out of batteries",
+    "CorrectFeedback": "Only a crank-powered radio is guaranteed to work throughout situations of power loss"
+  },
+  "15": {
+    "Q": "Which of these is NOT useful to have during a hurricane?",
+    "A": "Extra batteries and a battery pack for your phone",
+    "B": "Instant frozen microwave meals",
+    "C": "A flood insurance policy covering your home",
+    "D": "Bottled water",
+    "Answer": "B",
+    "IncorrectFeedback": "This is a less useful item in the answer choices",
+    "CorrectFeedback": "Your freezer and microwave may stop working with a loss of power"
+  },
+  "16": {
+    "Q": "Which of these is NOT a good hurricane preparation step",
+    "A": "Finding out where the nearest hurricane shelter is",
+    "B": "Stocking up on non-perishable food and water",
+    "C": "Buying inflatable boats so you are prepared for floods",
+    "D": "Knowing the fastest evacuation route from your area",
+    "Answer": "C",
+    "IncorrectFeedback": "This is good information to know",
+    "CorrectFeedback": "Do not let your main plan be a boat during a flood. There are better preparation materials to buy"
+  },
+  "17": {
+    "Q": "What is NOT something you should bring if you are going to a public shelter?",
+    "A": "Your personal guns and any pets you own",
+    "B": "Quiet books or games to keep yourself busy and not bother others",
+    "C": "Extra clothing and important personal documents",
+    "D": "Something to sleep on",
+    "Answer": "A",
+    "IncorrectFeedback": "This would be useful to bring to a public shelter",
+    "CorrectFeedback": "Guns and pets may not be allowed at the shelter. Bring items important for survival"
+  },
+  "18": {
+    "Q": "What can you do to strengthen your home ahead of a massive hurricane?",
+    "A": "Lay sandbags around your house, as the water will not be able to pass them",
+    "B": "Buy a pump to pump water away from your home",
+    "C": "Remove windows entirely from walls to avoid the chance of them breaking",
+    "D": "Bring in any outside furniture or large objects and reinforce windows",
+    "Answer": "D",
+    "IncorrectFeedback": "This is not a great way to protect your home",
+    "CorrectFeedback": "Decrease the number of objects moving around your home, and reinforce any windows"
+  },
+  "19": {
+    "Q": "Are mobile homes safe during a hurricane?",
+    "A": "Yes, because water will not be able to readily penetrate the interior",
+    "B": "Yes, because the mobile home will float and those inside will be safe",
+    "C": "No, any non-sturdy and non-grounded object is liable to be swept away by wind and flooding",
+    "D": "No, which is why you try to outdrive the storm in the mobile home",
+    "Answer": "C",
+    "IncorrectFeedback": "Mobile homes are not sturdy enough to weather severe storms, and may be swept away by water",
+    "CorrectFeedback": "Try to move to a more stable structure in a high-elevation area"
+  },
+  "20": {
+    "Q": "If you are in a high-rise building as a hurricane strikes, where should you shelter?",
+    "A": "On or below the 20th floor",
+    "B": "On or below the 10th floor",
+    "C": "On the top floor, as far from floodwater as possible",
+    "D": "There is no ideal location",
+    "Answer": "B",
+    "IncorrectFeedback": "Hint: You want to be above floodwaters, but not so high incase the building structure fails",
+    "CorrectFeedback": "On or below the 10th floor is considered ideal"
   }
 }

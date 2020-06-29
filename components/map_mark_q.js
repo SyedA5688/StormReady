@@ -2,13 +2,15 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
 
-export default function MapMarkerQ()
+export default class MapMarkerQ extends React.Component
 {
-  return (
-    <View>
-      <Text>Map marker game screen</Text>
-    </View>
-  )
+  render() {
+    return (
+      <View>
+        <Text>Map marker game screen</Text>
+      </View>
+    )
+  }
 }
 
 const styles = StyleSheet.create({

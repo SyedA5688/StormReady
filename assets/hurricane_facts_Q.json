@@ -1,22 +1,22 @@
 {
   "1": {
-    "Q": "What does hurricane formation mainly depend on?",
+    "Q": "What weather phenomenon does hurricane formation mainly depend on?",
     "A": "Warm water mixing with cold water in the ocean",
     "B": "Warm and cold fronts mixing in the air",
     "C": "Warm surface ocean temperatures",
     "D": "Fast moving ocean currents",
     "Answer": "C",
-    "IncorrectFeedback": "Try thinking about where hurricanes usually form in the ocean",
+    "IncorrectFeedback": "Hint: Think about where hurricanes usually get their energy from",
     "CorrectFeedback": "Warm ocean temperatures provides energy for hurricane formation"
   },
   "2": {
     "Q": "What is the most dangerous aspect of hurricanes if you live near the coast?",
     "A": "Fast windspeeds",
-    "B": "Getting hit by flying debris",
-    "C": "Rapid temperature and pressure changes",
-    "D": "The storm surge",
+    "B": "Getting hit by flying debris from strong winds",
+    "C": "Rapid and unexpected temperature and pressure changes",
+    "D": "The storm surge of the hurricane",
     "Answer": "D",
-    "IncorrectFeedback": "Hint: this factor also causes the most damage for coastal communities",
+    "IncorrectFeedback": "Hint: This is what causes the most structural and monetary damage to coastal communities",
     "CorrectFeedback": "The storm surge threatens coastal areas with severe flooding"
   },
   "3": {
@@ -26,23 +26,23 @@
     "C": "85 mph",
     "D": "100 mph",
     "Answer": "B",
-    "IncorrectFeedback": "Think about the minimum windspeed a hurricane must hold",
+    "IncorrectFeedback": "Hint: What is the minimum windspeed a hurricane must hold",
     "CorrectFeedback": "Hurricanes are classified as having 74+ mph winds"
   },
   "4": {
-    "Q": "What is the difference between hurricanes and cyclones?",
-    "A": "Nothing, they are different names for the same weather phenomenon",
-    "B": "Hurricanes form around the equator while cyclones form at higher latitudes",
-    "C": "Hurricanes have faster windspeeds than cyclones",
+    "Q": "What is the difference between hurricanes, cyclones, and typhoons?",
+    "A": "They are the same weather phenomenon, but called different names based on the ocean basin the storm formed in",
+    "B": "Hurricanes usually form around the equator while cyclones and typhoons form at higher latitudes",
+    "C": "Typhoons have faster windspeeds than cyclones and hurricanes",
     "D": "Cyclones only have windspeeds of less than 100 mph",
     "Answer": "A",
-    "IncorrectFeedback": "Can you think of any differences?",
+    "IncorrectFeedback": "Hint: The difference is based only on ocean basins",
     "CorrectFeedback": "The different terms are used depending on where the storm formed"
   },
   "5": {
     "Q": "When does a tropical storm become a hurricane?",
     "A": "When the waves carried by the hurricane reach 2 meters in height",
-    "B": "When it makes landfall",
+    "B": "When the storm makes landfall",
     "C": "When its sustained windspeed reaches or exceeds 74 mph",
     "D": "When the atmospheric pressure of the storm drops below 1000 milibars",
     "Answer": "C",
@@ -52,12 +52,12 @@
   "6": {
     "Q": "Which quadrant(s) of hurricanes, if any, typically have the fastest windspeeds?",
     "A": "All quadrants typically have similar windspeeds",
-    "B": "The front half of the storm",
-    "C": "The back left quadrant",
-    "D": "The forward right quadrant",
+    "B": "The back right quadrant of the storm",
+    "C": "The back left quadrant of the storm",
+    "D": "The forward right quadrant of the storm",
     "Answer": "D",
-    "IncorrectFeedback": "One quadrant of hurricanes usually has higher windspeeds",
-    "CorrectFeedback": "The forward motion of the entire storm adds to the windspeed in the forward right quadrant"
+    "IncorrectFeedback": "Hint: Does forward motion of a storm system add to its windspeed?",
+    "CorrectFeedback": "The entire storm system is moving, adding to windspeeds in the forward right quadrant"
   },
   "7": {
     "Q": "How deep does moving water have to be to sweep a grown adult off their feet?",
@@ -86,17 +86,17 @@
     "C": "Contaminated local water supply",
     "D": "Objects being carried by fast winds",
     "Answer": "A",
-    "IncorrectFeedback": "This is one of the dangers posed during hurricane events",
-    "CorrectFeedback": "High temperatures are not necessarily associated with hurricanes, unless damaged power lines or electronics starts a fire"
+    "IncorrectFeedback": "This is one of the dangers posed by severe storm events",
+    "CorrectFeedback": "High temperatures are not necessarily associated with hurricanes, unless a fire is started by damaged power lines"
   },
   "10": {
-    "Q": "How much water does a typical hurricane drop on a region?",
+    "Q": "How much water does a hurricane typically drop on a region?",
     "A": "0-6 inches",
     "B": "6-12 inches",
     "C": "12-18 inches",
     "D": "18-24 inches",
     "Answer": "B",
-    "IncorrectFeedback": "Hint: Not every hurricane floods a region, consider all hurricanes",
+    "IncorrectFeedback": "Hint: Not every hurricane floods a region, a few inches of rainfall is already a lot",
     "CorrectFeedback": "An average hurricane will drop around 6-12 inches of rain over an area"
   },
   "11": {
@@ -106,18 +106,18 @@
     "C": "The cloud bands at the back edge of the hurricane",
     "D": "Inside the eye of the hurricane",
     "Answer": "A",
-    "IncorrectFeedback": "Consider at which part of the hurricane are the clouds bands the densest",
+    "IncorrectFeedback": "Consider in which part of a hurricane do you observe the densest cloud bands",
     "CorrectFeedback": "The clouds around the eye of the storm will carry the fastest winds and heaviest rains"
   },
   "12": {
-    "Q": "How are hurricanes in the Atlantic Ocean and Gulf of Mexico affected during El nino years?",
+    "Q": "How are hurricanes in the Atlantic Basin affected during El nino years?",
     "A": "The warmer ocean temperatures in the eastern Pacific have no affect on hurricanes in the Atlantic Ocean",
-    "B": "There are more hurricanes in the Atlantic Ocean and Gulf of Mexico",
-    "C": "There are less hurricanes in the Atlantic Ocean and Gulf of Mexico",
-    "D": "There are less hurricanes in the Atlantic Ocean but more in the Gulf of Mexico",
+    "B": "There are more hurricanes in the Atlantic Basin",
+    "C": "There are less hurricanes in the Atlantic Basin",
+    "D": "There are more hurricanes in the Atlantic Basin but more in the Pacific Basin",
     "Answer": "C",
     "IncorrectFeedback": "Hint: Although ocean temperatures are warmer in the eastern Pacific, wind patterns over the Atlantic are changed during El nino",
-    "CorrectFeedback": "There are actually less hurricanes in the Atlantic Ocean and Gulf of Mexico during El nino due to increased vertical wind shear weakening hurricane formation"
+    "CorrectFeedback": "There are less hurricanes in the Atlantic Basin during El nino due to increased vertical wind shear weakening hurricane formation"
   },
   "13": {
     "Q": "What surface ocean temperature (in Fahrenheit) is required for hurricane development?",
@@ -127,7 +127,7 @@
     "D": "Around 80 degrees Fahrenheit",
     "Answer": "D",
     "IncorrectFeedback": "A lower surface ocean temperature can help hurricanes form",
-    "CorrectFeedback": "At around 80 degrees Fahrenheit surface ocean temperatures can feed hurricanes energy"
+    "CorrectFeedback": "At around 80 degrees Fahrenheit surface ocean temperatures can feed energy to hurricanes"
   },
   "14": {
     "Q": "How many tropical storms develop over the Atlantic Ocean during a typical hurricane season?",
@@ -139,4 +139,64 @@
     "IncorrectFeedback": "Consider how many tropical storm events you hear about during an average hurricane season",
     "CorrectFeedback": "Around 10 tropical storms will develop over the Atlantic Ocean, including the Caribbean Sea and Gulf of Mexico"
   },
+  "15": {
+    "Q": "What is the diameter of a typical hurricane?",
+    "A": "Around 200 miles wide",
+    "B": "Around 250 miles wide",
+    "C": "Around 300 miles wide",
+    "D": "Around 350 miles wide",
+    "Answer": "C",
+    "IncorrectFeedback": "Try again",
+    "CorrectFeedback": "Hurricanes are typically around 300 miles wide, but can vary considerably"
+  },
+  "16": {
+    "Q": "Can hurricanes form directly at the equator?",
+    "A": "Yes, because the ground at the equator is traveling the fastest due to Earth's rotation",
+    "B": "Yes, because the equator has the highest average temperatures",
+    "C": "Yes, because there is a lot of ocean surface area around th equator",
+    "D": "No, because the corioles effect that generates spin in wind patterns is weakest at the equator",
+    "Answer": "D",
+    "IncorrectFeedback": "Hurricanes do require warm ocean temperatures, however the corioles effect also plays a part its formation",
+    "CorrectFeedback": "The corioles effect is strongest at the poles and weakest at the equator"
+  },
+  "17": {
+    "Q": "How does vertical wind shear (change in wind speed with height) affect hurricane formation?",
+    "A": "It helps hurricane formation because the change in wind speed generates spin",
+    "B": "It hampers hurricane formation because it disrupts storm structure",
+    "C": "It helps hurricane formation because it distributes warm air around the storm",
+    "D": "It generally has no effect on hurricane development",
+    "Answer": "B",
+    "IncorrectFeedback": "Wind shear does affect hurricane development, and dispersing warm air does not benefit the storm",
+    "CorrectFeedback": "The change in wind speed destroys the storms structure and disperses air parcels above the storm"
+  },
+  "18": {
+    "Q": "What combination of factors gives the best chance for hurricane development?",
+    "A": "High humidity, low vertical wind shear, warm ocean surface temperature",
+    "B": "High humidity, high vertical wind shear, warm air temperatures",
+    "C": "Low humidity, high rate of evaporation",
+    "D": "Low humidity, low vertical wind shear, cold ocean surface temperatures",
+    "Answer": "A",
+    "IncorrectFeedback": "Try again",
+    "CorrectFeedback": "These factors all benefit hurricane development. Watch out for these conditions on weather forecasts!"
+  },
+  "19": {
+    "Q": "How far out from the center of a large hurricane can hurricane-force winds extend?",
+    "A": "50 miles",
+    "B": "100 miles",
+    "C": "150 miles",
+    "D": "200 miles",
+    "Answer": "C",
+    "IncorrectFeedback": "Try again. Fast winds can extend far out from the hurricanes center",
+    "CorrectFeedback": "You might experience hurricane force winds 150 or more miles out from the hurricanes center"
+  },
+  "20": {
+    "Q": "What is the most active month of hurricane season historically?",
+    "A": "June",
+    "B": "July",
+    "C": "August",
+    "D": "September",
+    "Answer": "D",
+    "IncorrectFeedback": "Try again. Hurricane season lasts from early June to late November",
+    "CorrectFeedback": "September is the most active month historically"
+  }
 }

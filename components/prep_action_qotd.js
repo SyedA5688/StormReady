@@ -29,7 +29,7 @@ export default function PrepActionQOTD()
   }
     
   const nextQuestionHandler = () => {
-    const maxQs = 6; // Total number of questions about hurricanes available
+    const maxQs = 20; // Total number of questions about hurricanes available
     let newQNum = Math.ceil(Math.random() * maxQs);
     setCurrentQ(newQNum);
     setRightAnsSelected(false);

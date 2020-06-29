@@ -13,18 +13,16 @@ export default function MonitorInfo(){
       <View style={styles.cardContainer} >
         <Text style={[styles.cardText2, {marginBottom: 3,}]} >This app has a system designed to:</Text>
         <Text style={styles.cardText} >
-          (1) Monitor your general location for hurricane threats
+          (1) Monitor your location in relation to active hurricanes
         </Text>
         <Text style={styles.cardText} >
-          (2) Send you daily reminders to answer a few questions about 
-          severe storm events.
+          (2) Send you notifications about storm locations and reminders to answer quiz questions
         </Text>
       </View>
       <View style={styles.cardContainer} >
         <Text style={styles.cardText2} >
-          If a severe storm enters your area, you will receive more frequent
-          reminders and warnings, with the aim of giving you more preparation 
-          time and knowledge.
+          If a severe storm enters your area, you will receive warnings in advance, to help give 
+          you time to prepare.
         </Text>
       </View>
       <View style={styles.cardContainer} >
@@ -49,7 +47,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     width: '100%',
     borderBottomWidth: 1,
-    marginBottom: 15,
+    marginBottom: 10,
   },
   topIconText: {
     marginLeft: 20,
@@ -60,15 +58,15 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 8,
     backgroundColor: 'seashell',
-    paddingVertical: 8,
+    paddingVertical: 10,
     paddingHorizontal: 20,
   },
   cardText: {
-    fontSize: 16,
+    fontSize: 18,
     //textAlign: 'center',
   },
   cardText2: {
-    fontSize: 16,
+    fontSize: 18,
     textAlign: 'center',
   },
 });

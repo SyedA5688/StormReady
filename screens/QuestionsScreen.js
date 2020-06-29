@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, ScrollView, Button, TouchableOpacity } from 'react-native';
+import { AntDesign, FontAwesome5 } from '@expo/vector-icons';
 
 
 export default class QuestionsScreen extends React.Component{
@@ -22,19 +23,38 @@ export default class QuestionsScreen extends React.Component{
         <ScrollView>
           <View style={styles.content} >
             <View style={styles.cardContainer} >
-              <Text style={styles.cardText} >Test your knowledge and preparation with one of the quiz games below!</Text>
+              <Text style={styles.cardText} >Test your knowledge and decision making with one of the quiz games below!</Text>
             </View>
 
             {/* Game navigation buttons */}
-            <TouchableOpacity style={[styles.buttonContainer, {backgroundColor: 'lightsteelblue'}]} onPress={this.onFactGamePress} >
-              <Text style={styles.buttonText} >Go To Hurricane Facts Quiz</Text>
+            <TouchableOpacity style={[styles.buttonContainer, {backgroundColor: 'lavender'}]} onPress={this.onFactGamePress} >
+              <Text style={styles.buttonText} >Hurricane Facts Quiz</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={[styles.buttonContainer, {backgroundColor: 'lightskyblue'}]} onPress={this.onPrepActionGamePress} >
-              <Text style={styles.buttonText} >Go To Preparation Quiz</Text>
+            <TouchableOpacity style={[styles.buttonContainer, {backgroundColor: 'lavender'}]} onPress={this.onPrepActionGamePress} >
+              <Text style={styles.buttonText} >Preparation Quiz</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={[styles.buttonContainer, {backgroundColor: 'lightpink'}]} onPress={this.onMapMarkerGamePress} >
-              <Text style={styles.buttonText} >Go To Map Marker Quiz</Text>
+            <TouchableOpacity style={[styles.buttonContainer, {backgroundColor: 'lavender'}]} onPress={this.onMapMarkerGamePress} >
+              <Text style={styles.buttonText} >Map Marker Quiz</Text>
             </TouchableOpacity>
+
+            {/* Some Description */}
+            <View style={styles.descriptionContainer} >
+              <View style={styles.descTextContainer} >
+                <Text style={styles.descText} >Make Sure to Develop Your:</Text>
+              </View>
+              <View style={styles.descComponent} >
+                <AntDesign name={'book'} size={37} color={'black'} />
+                <Text style={styles.descComponentText} >Understanding of hurricane formation and structure</Text>
+              </View>
+              <View style={styles.descComponent} >
+                <FontAwesome5 name={'list-alt'} size={34} color={'black'} />
+                <Text style={styles.descComponentText} >Plan for what to do before and during the event</Text>
+              </View>
+              <View style={styles.descComponent} >
+                <FontAwesome5 name={'map-marker-alt'} size={35} color={'black'} />
+                <Text style={styles.descComponentText} >Knowledge of nearby evacuation routes</Text>
+              </View>
+            </View>
           </View>
         </ScrollView>
       </View>
@@ -57,25 +77,51 @@ const styles = StyleSheet.create({
   cardContainer: {
     borderWidth: 1,
     borderRadius: 8,
-    paddingVertical: 6,
-    paddingHorizontal: 10,
+    paddingVertical: 10,
+    paddingHorizontal: 22,
     width: '100%',
-    backgroundColor: 'navajowhite',
+    backgroundColor: 'lightsteelblue',
     marginBottom: 20,
   },
   cardText: {
-    fontSize: 18,
+    fontSize: 20,
     textAlign: 'center',
   },
   buttonContainer: {
     borderWidth: 1,
     borderRadius: 8,
-    paddingVertical: 8,
-    width: '80%',
+    paddingVertical: 10,
+    width: '90%',
     marginBottom: 10,
   },
   buttonText: {
     fontSize: 18,
     textAlign: 'center',
   },
+  descriptionContainer: {
+    marginTop: 40,
+    width: '100%',
+    alignItems: 'center',
+  },
+  descTextContainer: {
+    borderBottomWidth: 1,
+    width: '95%',
+  },
+  descText: {
+    fontSize: 24,
+    textAlign: 'center',
+    marginBottom: 3,
+  },
+  descComponent: {
+    flexDirection: 'row',
+    alignSelf: 'flex-start',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    marginTop: 15,
+    marginHorizontal: 30,
+  },
+  descComponentText: {
+    fontSize: 18,
+    marginLeft: 15,
+  }
 });
