@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   buttonBox: {
-    borderWidth: 1,
+    borderWidth: 0.5,
     borderRadius: 10,
     backgroundColor: 'skyblue',
     width: '50%',

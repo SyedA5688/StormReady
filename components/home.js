@@ -4,11 +4,14 @@ import { StyleSheet, Image, Text, View } from 'react-native';
 export default function Home(){
   return(
     <View style={styles.container} >
-      <View style={[styles.cardContainer, { backgroundColor: 'lightsteelblue' }]}>
+      <View style={[styles.cardContainer, { backgroundColor: 'lightsteelblue', borderWidth: 1, }]}>
         <Text style={styles.titleText} >General Information:</Text>
-        <Text style={styles.generalText} >Hurricanes are dangerous storm systems characterized 
-                                    by strong winds, heavy rain, and possible flood damage. But the 
-                                    most dangerous threat during hurricanes is unpreparedness!</Text>
+        <Text style={styles.generalText}>
+          Hurricanes are dangerous storm systems characterized 
+          by strong winds, heavy rain, and possible flood damage. This
+          app is your hub for preparing for these severe storms before
+          they happen
+        </Text>
       </View>
       <View style={[styles.cardContainer, { backgroundColor: 'lightskyblue' }]} >
         <Text style={styles.cardText} >For information and helpful tips on how to prepare for severe storms, click on
@@ -22,8 +25,9 @@ export default function Home(){
         <Text style={styles.cardText} >To get the most out of this app, check out the <Text style={{fontWeight: 'bold'}} >
                                       Monitor</Text> tab for push notifications and hurricane location monitoring</Text> 
       </View>
+
       <View style={styles.imageContainer} >
-        <Image source={require('../assets/hurricane.jpg')} style={styles.image} />
+        <Image source={require('../assets/hurricane2.jpg')} style={styles.image} />
       </View>
     </View>
   )
@@ -33,9 +37,10 @@ const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
     flex: 1,
+    width: '100%',
   },
   cardContainer: {
-    borderWidth: 1,
+    borderWidth: 0.5,
     marginBottom: 15,
     padding: 10,
     borderRadius: 8,
@@ -55,19 +60,14 @@ const styles = StyleSheet.create({
   },
   imageContainer: {
     //borderWidth: 1,
-    width: '100%',
-    height: 200,
     alignItems: 'center',
-    marginTop: 5,
+    marginTop: 10,
   },
   image: {
-    flex: 1,
-    aspectRatio: 1.5,
-    resizeMode: 'contain',
-    height: undefined,
-    width: undefined,
-    borderWidth: 1,
-    borderRadius: 10,
-    borderColor: 'grey'
+    height: 195,
+    width: 300,
+    borderRadius: 8,
+    borderWidth: 0.5,
+    borderColor: 'silver',
   },
 });

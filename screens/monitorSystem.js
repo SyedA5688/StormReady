@@ -30,14 +30,15 @@ export default class MonitorSystem extends React.Component {
 
   updateStateLocation = async () => {
     let user_id = firebase.auth().currentUser.uid;
-    await firebase.database().ref("users").child(user_id).child('location').once('value')
+    const response = await firebase.database().ref("users").child(user_id).child('location').once('value')
       .then((snapshot) => {
-        // Update state with longitude and latitude retrieved from firebase
-        //console.log(snapshot.val());
-        this.setState({ userLocation: {
-          latitude: parseFloat(snapshot.val().latitude),
-          longitude: parseFloat(snapshot.val().longitude),
-        } });
+        // Update state with longitude and latitude retrieved from firebase, if user has location data in database
+        if (snapshot.val() != null){
+          this.setState({ userLocation: {
+            latitude: parseFloat(snapshot.val().latitude),
+            longitude: parseFloat(snapshot.val().longitude),
+          } });
+        }
       }, (error) => {
         console.log(error.message);
       })
@@ -94,13 +95,15 @@ export default class MonitorSystem extends React.Component {
     }
 
     let location = await Location.getCurrentPositionAsync({});
-    //this.setState({ userLocation: location });
     // Store rounded location in firebase
     let uid = firebase.auth().currentUser.uid;
     firebase.database().ref("users").child(uid).child("location").update({
       latitude: location.coords.latitude.toFixed(5),
       longitude: location.coords.longitude.toFixed(5)
     });
+
+    // Update the location in state
+    this.updateStateLocation();
   }
 
   onRegisterForNotificationsPress = () => {
@@ -214,8 +217,6 @@ export default class MonitorSystem extends React.Component {
         <Header />
         <ScrollView>
           <View style={styles.content} >
-            
-
             {/* Location tracking area */}
             <View style={styles.locationContainer} >
               <View style={styles.mapTitleContainer} >
@@ -265,21 +266,22 @@ export default class MonitorSystem extends React.Component {
                 })}
               </MapView>
             </View>
-            <TouchableOpacity 
-              style={[styles.buttonBox, {backgroundColor: 'skyblue'}]} 
-              onPress={this.onRegisterForNotificationsPress} 
-            >
+
+            <View style={styles.cardContainer} >
+              <Text style={styles.cardText} >
+                To receive notifications and register or update your location in our system, 
+                use the buttons below
+              </Text>
+            </View>
+
+            {/* Buttons */}
+            <TouchableOpacity style={[styles.buttonBox, {backgroundColor: 'skyblue'}]} onPress={this.onRegisterForNotificationsPress} >
               <Text style={styles.buttonText}>Register for notifications</Text>
             </TouchableOpacity>
-            <TouchableOpacity 
-              style={[styles.buttonBox, {backgroundColor: 'lightgreen'}]} 
-              onPress={this.onRegisterLocationPress} 
-            >
+            <TouchableOpacity style={[styles.buttonBox, {backgroundColor: 'lightgreen'}]} onPress={this.onRegisterLocationPress} >
               <Text style={styles.buttonText}>Update location</Text>
             </TouchableOpacity>
-            
-            {/* Signout Button */}
-            <TouchableOpacity style={[styles.buttonBox, {backgroundColor: 'lightpink', marginTop: 30,}]} onPress={this.onSignoutPress} >
+            <TouchableOpacity style={[styles.buttonBox, {backgroundColor: 'lightpink', marginBottom: 30,}]} onPress={this.onSignoutPress} >
               <Text style={styles.buttonText}>Signout</Text>
             </TouchableOpacity>
           </View>
@@ -304,15 +306,16 @@ const styles = StyleSheet.create({
     marginVertical: 10,
     alignItems: 'center',
     width: '100%',
+    marginBottom: 15,
   },
   mapTitleContainer: {
     marginBottom: 15,
     borderBottomWidth: 1,
-    width: '80%',
+    width: '90%',
     alignItems: 'center',
   },
   mapTitleText: {
-    fontSize: 24,
+    fontSize: 26,
     marginBottom: 2,
   },
   mapStyle: {
@@ -321,13 +324,25 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 8,
   },
-  buttonBox: {
+  cardContainer: {
     borderWidth: 1,
+    marginBottom: 20,
+    padding: 10,
+    borderRadius: 8,
+    width: Dimensions.get('window').width - 60,
+    backgroundColor: 'seashell',
+  },
+  cardText: {
+    fontSize: 18,
+    textAlign: 'center',
+  },
+  buttonBox: {
+    borderWidth: 0.5,
     borderRadius: 10,
     width: '70%',
     paddingVertical: 6,
     paddingHorizontal: 10,
-    marginBottom: 8,
+    marginBottom: 10,
   },
   buttonText: {
     textAlign: 'center',

@@ -83,10 +83,12 @@ const styles = StyleSheet.create({
     paddingVertical: 30,
     paddingHorizontal: 35,
     flex: 1,
+    alignItems: 'center',
   },
   loginContainer: {
     marginTop: 15,
     marginBottom: 50,
+    width: '95%',
     alignItems: "center",
     borderWidth: 1,
     paddingTop: 18,
@@ -100,13 +102,13 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   buttonContainer: {
-    marginTop: 20,
+    marginTop: 15,
     marginBottom:  20,
     alignItems: 'center',
     width: '100%',
   },
   buttonBox: {
-    borderWidth: 1,
+    borderWidth: 0.5,
     borderRadius: 10,
     width: '60%',
     padding: 7,
