@@ -10,6 +10,7 @@ events.
 Features of the app include:
 - Helpful tips for storm preparation and avoiding danger during weather events
 - A Question/Answer/Feedback system designed to hint users towards important information about hurricanes
+- A map marker system to display the major hurricanes that hit a coordinate point on a map in recent years
 - Push notifications using Firebase cloud functions and Expo notifications
 - User location tracking
 - A map of all active hurricane locations globally
