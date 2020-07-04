@@ -49,7 +49,14 @@ sendPushNotification = (userObj, distToNearestHurricane) => {
   let push_token = userObj.expoPushToken;
   let message;
 
-  if (distToNearestHurricane > 1000) {
+  if (distToNearestHurricane == -1) {
+    message = {
+      to: push_token, sound: 'default', title: 'Hurricane Location Status: Safe', 
+      body: 'There are no active hurricanes at the moment. You are safe',
+      data: { data: 'goes here' }, _displayInForeground: true,
+    };
+  }
+  else if (distToNearestHurricane > 1000) {
     message = {
       to: push_token, sound: 'default', title: 'Hurricane Location Status: Safe', 
       body: 'There are no active hurricanes within 1000 miles of your location. But you can still plan ahead!',
@@ -120,8 +127,8 @@ exports.scheduledStormProximityNotification = functions.pubsub.schedule('0 10 * 
       }
 
       if (distToStorms.length == 0) {
-        // There are no active hurricanes, no need to send notification
-        return null;
+        // There are no active hurricanes, send -1 code to function
+        sendPushNotification(userList[i], -1);
       } else {
         let nearestDist = Math.min(...distToStorms);
         sendPushNotification(userList[i], nearestDist);

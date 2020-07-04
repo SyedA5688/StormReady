@@ -65,10 +65,10 @@ export default class GameStackNavigator extends React.Component{
           }}
         />
         <Stack.Screen 
-          name="Map Quiz"
+          name="Map Marker"
           component={MapMarkerGameScreen} 
           options={{
-            title: 'Map Quiz',
+            title: 'Map Marker',
             headerStyle: {
               backgroundColor: 'cornflowerblue',
               height: 90,

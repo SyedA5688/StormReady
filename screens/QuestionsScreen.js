@@ -13,7 +13,7 @@ export default class QuestionsScreen extends React.Component{
   }
 
   onMapMarkerGamePress = () => {
-    this.props.navigation.navigate("Map Quiz");
+    this.props.navigation.navigate("Map Marker");
   }
 
   
@@ -34,7 +34,7 @@ export default class QuestionsScreen extends React.Component{
               <Text style={styles.buttonText} >Preparation Quiz</Text>
             </TouchableOpacity>
             <TouchableOpacity style={[styles.buttonContainer, {backgroundColor: 'lavender'}]} onPress={this.onMapMarkerGamePress} >
-              <Text style={styles.buttonText} >Map Marker Quiz</Text>
+              <Text style={styles.buttonText} >Map Marker</Text>
             </TouchableOpacity>
 
             {/* Some Description */}
