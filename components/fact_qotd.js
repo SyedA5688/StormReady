@@ -100,7 +100,8 @@ const styles = StyleSheet.create({
     width: '100%',
     paddingHorizontal: 15,
     paddingVertical: 10,
-    borderColor: '#bbb',
+    borderColor: 'black',
+    backgroundColor: 'antiquewhite',
     borderWidth: 2,
     borderStyle: 'solid',
     borderRadius: 5,
@@ -122,6 +123,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     borderWidth: 1,
     borderColor: '#bbb',
+    backgroundColor: 'aliceblue',
     borderRadius: 5,
   },
   textA: {

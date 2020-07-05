@@ -105,6 +105,7 @@ const styles = StyleSheet.create({
     borderStyle: 'solid',
     borderRadius: 5,
     marginBottom: 20,
+    backgroundColor: 'antiquewhite',
   },
   textQ: {
     fontSize: 18,
@@ -123,6 +124,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#bbb',
     borderRadius: 5,
+    backgroundColor: 'aliceblue',
   },
   textA: {
     fontSize: 16,

@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, Dimensions } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
+import { FontAwesome } from '@expo/vector-icons';
 import ApiKeys from '../constants/ApiKeys';
 
 
@@ -18,16 +19,13 @@ export default class MapMarkerQ extends React.Component {
 
   dragEndHandler = async (e) => {
     this.setState({ x: e.nativeEvent.coordinate });
-    setTimeout(() => {
-      this.getStorms();
-    }, 500);
+    this.getStorms(e.nativeEvent.coordinate.latitude, e.nativeEvent.coordinate.longitude);
   };
 
-  getStorms = async () => {
+  getStorms = async (lat, long) => {
     // Requests all hurricanes and tropical storms in past 5 years that passed within 200 miles of coordinate, puts response into stormList
-    const response = await fetch('https://api.aerisapi.com/tropicalcyclones/archive/closest?p=' + 
-      this.state.x.latitude.toFixed(2) + ',' + this.state.x.longitude.toFixed(2) + '&radius=200miles&from=-5years&to=now&limit=40' +
-      '&client_id=' + ApiKeys.WeatherAPI.accessID + '&client_secret=' + ApiKeys.WeatherAPI.secretKey)
+    const response = await fetch('https://api.aerisapi.com/tropicalcyclones/archive/closest?p=' + lat + ',' + long + 
+    '&radius=200miles&from=-5years&to=now&limit=40' + '&client_id=' + ApiKeys.WeatherAPI.accessID + '&client_secret=' + ApiKeys.WeatherAPI.secretKey)
       .then(response => response.json()).then(data => {
         this.setState({ stormList: data.response.map(eachStorm => (
           {
@@ -36,7 +34,6 @@ export default class MapMarkerQ extends React.Component {
             year: eachStorm.profile.year,
           }
         )) });
-        //console.log(this.state.stormList);
       });
   }
 
@@ -61,12 +58,15 @@ export default class MapMarkerQ extends React.Component {
 
         <View style={styles.responseContainer} >
           <Text style={{fontSize:22, textAlign: 'center'}} >Recent Major Storms:</Text>
-          <Text style={{fontSize:15, textAlign: 'center'}} >(Listed in order of proximity)</Text>
+          <Text style={{fontSize:15, textAlign: 'center', marginBottom: 5}} >(Listed in order of proximity to point)</Text>
           {this.state.stormList.map(stormData => {
             return (
-              <Text style={styles.responseText} key={stormData.id + 'TextComponent'} >
-                {stormData.name}, {stormData.year}
-              </Text>
+              <View style={styles.indivResponseContainer} key={stormData.id + 'ViewComponent'} >
+                <FontAwesome name="cloud" size={20} color="black" />
+                <Text style={styles.responseText} key={stormData.id + 'TextComponent'} >
+                  {stormData.name}, {stormData.year}
+                </Text>
+              </View>
             )
           })}
         </View>
@@ -108,13 +108,19 @@ const styles = StyleSheet.create({
   responseContainer: {
     borderWidth: 1,
     borderRadius: 5,
-    backgroundColor: 'azure',
+    backgroundColor: 'aliceblue',
     width: '100%',
     paddingVertical: 10,
     paddingHorizontal: 25,
   },
+  indivResponseContainer: {
+    flexDirection: 'row',
+    marginVertical: 3,
+    marginHorizontal: 10,
+    alignItems: 'center',
+  },
   responseText: {
     fontSize: 18,
-    marginVertical: 2,
+    marginLeft: 10,
   },
 });

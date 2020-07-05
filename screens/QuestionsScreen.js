@@ -27,13 +27,13 @@ export default class QuestionsScreen extends React.Component{
             </View>
 
             {/* Game navigation buttons */}
-            <TouchableOpacity style={[styles.buttonContainer, {backgroundColor: 'lavender'}]} onPress={this.onFactGamePress} >
+            <TouchableOpacity style={[styles.buttonContainer, {backgroundColor: 'whitesmoke'}]} onPress={this.onFactGamePress} >
               <Text style={styles.buttonText} >Hurricane Facts Quiz</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={[styles.buttonContainer, {backgroundColor: 'lavender'}]} onPress={this.onPrepActionGamePress} >
+            <TouchableOpacity style={[styles.buttonContainer, {backgroundColor: 'whitesmoke'}]} onPress={this.onPrepActionGamePress} >
               <Text style={styles.buttonText} >Preparation Quiz</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={[styles.buttonContainer, {backgroundColor: 'lavender'}]} onPress={this.onMapMarkerGamePress} >
+            <TouchableOpacity style={[styles.buttonContainer, {backgroundColor: 'whitesmoke'}]} onPress={this.onMapMarkerGamePress} >
               <Text style={styles.buttonText} >Map Marker</Text>
             </TouchableOpacity>
 
@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     paddingHorizontal: 22,
     width: '100%',
-    backgroundColor: 'lightsteelblue',
+    backgroundColor: 'lavender',
     marginBottom: 20,
   },
   cardText: {
