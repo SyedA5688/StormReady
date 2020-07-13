@@ -13,7 +13,7 @@ export default class ForgotPasswordScreen extends React.Component {
   onResetPasswordPress = () => {
     firebase.auth().sendPasswordResetEmail(this.state.email)
       .then(() => {
-        Alert.alert("Password reset email was send.")
+        Alert.alert("Password reset email was sent.")
       }, (error) => {
         Alert.alert(error.message);
       })

@@ -210,6 +210,10 @@ export default class MonitorSystem extends React.Component {
       body: JSON.stringify(message),
     });
   };
+
+  cancelNotif = () => {
+    Notifications.cancelAllScheduledNotificationsAsync();
+  }
   
   render() {
     return (
