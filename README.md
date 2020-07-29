@@ -17,4 +17,4 @@ Features of the app include:
 
 
 This app was developed using React Native/Expo and Firebase. Hurricane location information is drawn from
-the Aeris Weather API.
+the Aeris Weather API. Due to the price of the API service long-term, this mobile app has not been deployed.
