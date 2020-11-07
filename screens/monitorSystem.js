@@ -213,6 +213,7 @@ export default class MonitorSystem extends React.Component {
 
   cancelNotif = () => {
     Notifications.cancelAllScheduledNotificationsAsync();
+    Alert.alert("Cancelled scheduled notifications");
   }
   
   render() {
@@ -289,6 +290,8 @@ export default class MonitorSystem extends React.Component {
               <Text style={styles.buttonText}>Signout</Text>
             </TouchableOpacity>
           </View>
+          {/*  */}
+          <Button title="Cancel notifications" onPress={this.cancelNotif} />
         </ScrollView>
       </View>
     )
