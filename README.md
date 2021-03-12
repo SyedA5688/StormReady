@@ -1,5 +1,4 @@
-# StormReady
-
+## StormReady
 StormReady is an informative hurricane preparation app developed by Syed Rizvi.
 
 The aim of the app is to increase the awareness of users about the formation and dangers of hurricanes events,
@@ -7,7 +6,11 @@ as well as provide a convenient hub for viewing active and past hurricane locati
 information and safety tips in one place, the hope is that users become better informed and are encouraged to 
 prepare ahead of time for dangerous weather events.
 
-Features of the app include:
+## Screen Captures
+![StormReady Screen Collage](/assets/screen_collage1.png) 
+![StormReady Screen Collage](/assets/screen_collage2.png) 
+
+## Features:
 - Helpful tips for storm preparation and avoiding danger during weather events
 - Question/answer/feedback screens designed to hint users towards important information
 - A map marker system to display the major hurricanes that hit any coordinate point on a map in recent years
@@ -15,6 +18,7 @@ Features of the app include:
 - User location tracking
 - A global map of all active hurricane locations
 
-
-This app was developed using React Native/Expo and Firebase. Hurricane location information is drawn from
-the Aeris Weather API. Due to the price of the API service long-term, this mobile app has not been deployed.
+## Frameworks and APIs
+- React Native/Expo
+- Firebase Realtime Database
+- AerisWeather API
