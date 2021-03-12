@@ -6,9 +6,6 @@ as well as provide a convenient hub for viewing active and past hurricane locati
 information and safety tips in one place, the hope is that users become better informed and are encouraged to 
 prepare ahead of time for dangerous weather events.
 
-## Screen Captures
-![StormReady Screen Collage](/assets/screen_collage1.png) 
-![StormReady Screen Collage](/assets/screen_collage2.png) 
 
 ## Features:
 - Helpful tips for storm preparation and avoiding danger during weather events
@@ -17,6 +14,13 @@ prepare ahead of time for dangerous weather events.
 - Push notifications using Firebase cloud functions and Expo notifications
 - User location tracking
 - A global map of all active hurricane locations
+
+
+## Screen Captures
+![StormReady Screen Collage](/assets/screen_collage1.png) 
+
+![StormReady Screen Collage](/assets/screen_collage2.png) 
+
 
 ## Frameworks and APIs
 - React Native/Expo
