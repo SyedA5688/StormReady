@@ -17,9 +17,9 @@ prepare ahead of time for dangerous weather events.
 
 
 ## Screen Captures
-![StormReady Screen Collage](/assets/screen_collage1.png) 
+![StormReady Screen Collage](/assets/screens1.png) 
 
-![StormReady Screen Collage](/assets/screen_collage2.png) 
+![StormReady Screen Collage](/assets/screens2.png) 
 
 
 ## Frameworks and APIs
